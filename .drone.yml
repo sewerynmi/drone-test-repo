@@ -13,5 +13,7 @@ steps:
       - echo hello world
 
 trigger:
+  branch:
+    - main
   event:
     - push
