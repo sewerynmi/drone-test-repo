@@ -15,7 +15,6 @@ steps:
     image: maven:3.8.3-openjdk-17
     commands:
       - mvn clean install
-      - java -jar target/basic-app.jar
 
 trigger:
   event:
