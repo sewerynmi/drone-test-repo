@@ -12,9 +12,9 @@ steps:
     commands:
       - echo hello world
   - name: build
-    image: maven:3-jdk-10
+    image: maven:3.8-openjdk-17
     commands:
-      - mvn package
+      - mvn clean install
 
 trigger:
   event:
