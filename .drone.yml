@@ -7,13 +7,13 @@ platform:
   arch: amd64
 
 steps:
-  - name: greeting
-    image: alpine
-    commands:
-      - echo hello world
+- name: greeting
+  image: alpine
+  commands:
+    - echo hello world
 
 trigger:
   branch:
-    - main
+  - main
   event:
-    - push
+  - push
