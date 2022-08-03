@@ -7,21 +7,26 @@ platform:
   arch: amd64
 
 steps:
-  - name: test
+  - name: maven_test
     image: maven:3.8.3-openjdk-17
     commands:
       - mvn test
-  - name: build
+
+  - name: maven_build
     image: maven:3.8.3-openjdk-17
     commands:
       - mvn clean package
-  - name: publish
+
+  - name: docker_build
     image: docker
+    volumes:
+      - name: dockersock
+        path: /var/run/docker.sock
     commands:
       - docker build -t basic-app .
     depends_on:
-      - test
-      - build
+      - maven_test
+      - maven_build
 
 trigger:
   event:
