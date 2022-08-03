@@ -16,6 +16,7 @@ steps:
     commands:
       - mvn clean package
   - name: publish
+    image: alpine
     commands:
       - docker build -t basic-app .
     depends_on:
