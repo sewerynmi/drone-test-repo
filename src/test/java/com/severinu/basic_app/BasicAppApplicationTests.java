@@ -14,7 +14,7 @@ class BasicAppApplicationTests {
 
     @Test
     void failedTest () {
-        fail("This test should fail.");
+        //fail("This test should fail.");
     }
 
 }

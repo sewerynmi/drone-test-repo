@@ -1,21 +1,25 @@
 kind: pipeline
 type: docker
-name: backend
+name: backend-app
 
 platform:
   os: linux
   arch: amd64
 
 steps:
-  - name: greeting
-    image: alpine
-    commands:
-      - echo hello world
-  - name: build
+  - name: test
     image: maven:3.8.3-openjdk-17
     commands:
       - mvn test
-      - mvn clean install
+  - name: build
+    image: maven:3.8.3-openjdk-17
+    commands:
+      - mvn clean package
+    depends_on:
+      - test
+  - name: publish
+    commands:
+      - docker build -t basic-app .
 
 trigger:
   event:
