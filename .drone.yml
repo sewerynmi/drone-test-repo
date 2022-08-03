@@ -11,12 +11,10 @@ steps:
     image: maven:3.8.3-openjdk-17
     commands:
       - mvn test
-      - mvn clean install
-  - name: test
+  - name: build
     image: maven:3.8.3-openjdk-17
     commands:
-      - mvn test
-      - mvn clean install
+      - mvn clean package
 
 trigger:
   event:
