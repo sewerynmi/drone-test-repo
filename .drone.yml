@@ -15,6 +15,12 @@ steps:
     image: maven:3.8.3-openjdk-17
     commands:
       - mvn clean package
+  - name: publish
+      commands:
+        - docker build -t basic-app .
+    depends_on:
+      - test
+      - build
 
 trigger:
   event:
